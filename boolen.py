@@ -1,0 +1,11 @@
+# add false value
+bool(False)
+bool(None)
+bool(0)
+bool("")
+bool(())
+bool([])
+bool({})
+print(10 > 9)
+print(10 == 10)
+print(10 < 9)

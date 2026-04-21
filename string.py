@@ -38,3 +38,5 @@ if "expensive" not in txt:
 #Slicing Strings
 b = "Hello, World!"
 print(b[2:5])
+print(b[:5])
+print(b[2:])
