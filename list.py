@@ -16,3 +16,14 @@ print(thislist)
 tropical = ["mango", "pineapple", "papaya"]
 thislist.extend(tropical)
 print(thislist)
+# remove item
+thislist.remove("mango")
+print(thislist)
+# Remove Specified Index
+thislist.pop(1)
+print(thislist)
+del thislist[0]
+print(thislist)
+# Clear the List
+thislist.clear()
+print(thislist)
