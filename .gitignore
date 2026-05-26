@@ -1,3 +1,7 @@
+createGloblePython/node_modules/
+createGloblePython/venv/
+createGloblePython/__pycache__/
+createGloblePython/.env
 node_modules/
 venv/
 __pycache__/
