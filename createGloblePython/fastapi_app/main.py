@@ -6,7 +6,7 @@ tasks = []
 class Task(BaseModel): 
     title: str
     completed: bool = False
-    
+
 @app.get("/")
 def home():
     return{"message":"Fastapi is running"}
@@ -14,6 +14,13 @@ def home():
 @app.get("/tasks")
 def get_tasks():
     return tasks
+@app.get("/tasks/{task_id}")
+def get_taskid(task_id:int):
+       
+    if task_id < len(tasks):
+        return tasks[task_id]
+
+    return {"error": "Task not found"}
 
 @app.post("/tasks")
 def add_task(task: Task):
@@ -31,7 +38,7 @@ def update_task(task_id: int, updated_task: Task):
 
         return {
             "message": "Task updated",
-            "task": updated_task
+           "updated_task": tasks[task_id]
         }
 
     return {"error": "Task not found"}
