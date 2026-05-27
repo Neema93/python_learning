@@ -3,8 +3,10 @@ from pydantic import BaseModel
 app = FastAPI()
 #fackdatabase
 tasks = []
-class Task(BaseModel): # type: ignore
+class Task(BaseModel): 
     title: str
+    completed: bool = False
+    
 @app.get("/")
 def home():
     return{"message":"Fastapi is running"}
@@ -20,3 +22,16 @@ def add_task(task: Task):
         "message": "Task added",
         "task": task
     }
+# Update task
+@app.put("/tasks/{task_id}")
+def update_task(task_id: int, updated_task: Task):
+
+    if task_id < len(tasks):
+        tasks[task_id] = updated_task
+
+        return {
+            "message": "Task updated",
+            "task": updated_task
+        }
+
+    return {"error": "Task not found"}
